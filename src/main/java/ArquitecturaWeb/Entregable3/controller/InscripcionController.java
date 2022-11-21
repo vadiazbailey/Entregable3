@@ -4,11 +4,14 @@ import ArquitecturaWeb.Entregable3.service.CarreraService;
 import ArquitecturaWeb.Entregable3.service.EstudianteService;
 import ArquitecturaWeb.Entregable3.service.InscripcionService;
 import ArquitecturaWeb.Entregable3.service.ReporteService;
+<<<<<<< HEAD
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 
+=======
+>>>>>>> ced471ec16627c399697b61804aff04f58dab644
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +32,15 @@ public class InscripcionController {
     @Autowired
     ReporteService reporteService;
 
+<<<<<<< HEAD
     @ApiOperation(value = "Inscribe un estudiante a una carrera",
         response = Estudiante.class,  
         notes = "Modo de uso: http://localhost:8080/inscripciones/inscribir?libretaUniversitaria={LU}&idCarrera={IDC} con LU = Libreta Universitaria y IDC = id Carrera")
     
     @RequestMapping(value="/inscribir", params = {"libretaUniversitaria","idCarrera"} , method = RequestMethod.POST, produces="application/json")
+=======
+    @RequestMapping(value="/inscribir", params = {"libretaUniversitaria","idCarrera"}, produces="application/json")
+>>>>>>> ced471ec16627c399697b61804aff04f58dab644
     public ResponseEntity<?> addInscripcion(@RequestParam Long libretaUniversitaria, @RequestParam Long idCarrera){
         Optional<Estudiante> e = estudianteService.findById(libretaUniversitaria);
         if (e.isEmpty()){
@@ -84,8 +91,11 @@ public class InscripcionController {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
+<<<<<<< HEAD
     @ApiOperation(value = "Genera un reporte de las carreras.",  
         notes = "Modo de uso: http://localhost:8080/inscripciones/getReporte. Genera un reporte de las carreras, que incluye información de los inscriptos y egresados por año. Ordenado por carreras alfabéticamente, y presenta los años de manera cronológica.")
+=======
+>>>>>>> ced471ec16627c399697b61804aff04f58dab644
     @RequestMapping(value="/getReporte", method = RequestMethod.GET, produces = "application/json")
     public List<Reporte> getReporte() {
         return reporteService.getReporte();
